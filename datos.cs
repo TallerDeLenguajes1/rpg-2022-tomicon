@@ -25,12 +25,13 @@ public class datos {
         string[] nombres= {"Jesse","Nurten","Hildegart","Mirja","Elfi","Ingeburg","Annegrete","Lieselotte","Kiyasi","Kete","Altug","Miray","Bayan","Nalan","Beatrice","Aalis"};
         string[] apellido= {"Gregoire","Leduc","Roussel","Bodin","Trentini","Combi","Ossani","Giunti","Fritsch","Buchholz","Oderwald","Stroh"};
         string[] apodos= {"Protesian","Nessundorma","Demonologist","Elessar","undomiel","Earendil","Gilthoniel","Shadowhunter"};
+        string[] apodos2= {"Shruikan","Argetlam","Arya","Elva","Sloan","Brugh","Shadow killer","The great"};
         string[] tipos= {"elfo","hombre","brujo","orco","troll","enano","animal encantado"};
         int saludInicial = 100;
         Random r= new Random();
         nombre= nombres[r.Next(0,16)] + " " + apellido[r.Next(0,12)];
         salud = saludInicial;
-        apodo = apodos[r.Next(0,8)] + " " + apodos[r.Next(0,8)];
+        apodo = apodos[r.Next(0,8)] + " " + apodos2[r.Next(0,8)];
         tipo =  tipos[r.Next(0,7)];
         fecha_Nac = new DateTime(r.Next(1722, 2012), r.Next(1, 13), r.Next(1, 31));
         edad = calcularEdad(fecha_Nac);
