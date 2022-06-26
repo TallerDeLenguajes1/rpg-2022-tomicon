@@ -6,6 +6,10 @@ public class caracteristicas{
     private int nivel; //1 a 10
     private int armadura; //1 a 10
 
+    public caracteristicas()
+    {
+    }
+
     public int Velocidad { get => velocidad; set => velocidad = value; }
     public int Destreza { get => destreza; set => destreza = value; }
     public int Fuerza { get => fuerza; set => fuerza = value; }

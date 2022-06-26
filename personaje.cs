@@ -5,6 +5,8 @@ public class personaje{
 
     public personaje()
     {
+        this.poder = new caracteristicas();
+        this.informacion= new datos();
     }
 
     public caracteristicas Poder { get => poder; set => poder = value; }
@@ -35,5 +37,13 @@ public class personaje{
         Informacion.Tipo =  tipos[r.Next(0,7)];
         Informacion.Fecha_Nac = new DateTime(r.Next(1722, 2012), r.Next(1, 13), r.Next(1, 31));
         Informacion.Edad = calcularEdad(Informacion.Fecha_Nac);
+    }
+
+    public void mostrarDatos(){
+        Console.WriteLine("||------Jugador: " + informacion.Nombre + " ------||");
+        Console.WriteLine("Apodo: " + informacion.Apodo);
+        Console.WriteLine("Raza: " + informacion.Tipo);
+        Console.WriteLine("Fecha de nacimiento: " + informacion.Fecha_Nac);
+        Console.WriteLine("Edad: " + informacion.Edad);
     }
 }

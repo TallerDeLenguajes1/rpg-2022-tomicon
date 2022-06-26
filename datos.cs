@@ -1,11 +1,15 @@
 // See https://aka.ms/new-console-template for more information
-public partial class datos {
+public class datos {
     private string tipo;
     private string nombre;
     private string apodo;
     private DateTime fecha_Nac;
     private int edad; //entre 0 a 300
     private int salud;//100
+
+    public datos()
+    {
+    }
 
     public string Nombre { get => nombre; set => nombre = value; }
     public string Apodo { get => apodo; set => apodo = value; }
