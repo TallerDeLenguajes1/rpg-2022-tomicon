@@ -8,6 +8,12 @@ public class caracteristicas{
 
     public caracteristicas()
     {
+        Random r= new Random();
+        velocidad= r.Next(1, 11);
+        destreza= r.Next(1,6);
+        fuerza= r.Next(1, 11);
+        nivel= r.Next(1, 11);
+        armadura= r.Next(1, 11);
     }
 
     public int Velocidad { get => velocidad; set => velocidad = value; }
