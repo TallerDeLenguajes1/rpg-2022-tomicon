@@ -24,7 +24,6 @@ public class combates{
         int PoderDefensa= jugador.Poder.Armadura * jugador.Poder.Velocidad;
         return PoderDefensa;
     }
-
     private void ataque(personaje jugador1, personaje jugador2)
     {
         double efectividadDisparo= r.Next(0,101);
@@ -43,6 +42,29 @@ public class combates{
         }
         Console.WriteLine("LA salud de " + jugador2.Informacion.Nombre + " bajo a " + jugador2.Informacion.Salud);
     }
+    private void premioGanador(personaje jugador)
+    {
+        jugador.Informacion.Salud += 1000;
+        Random r = new Random();
+        switch (r.Next(1, 6))
+        {
+            case 1:
+                jugador.Poder.Armadura +=1;
+                break;
+            case 2:
+                jugador.Poder.Destreza +=1;
+                break;
+            case 3:
+                jugador.Poder.Fuerza +=1;
+                break;
+            case 4:
+                jugador.Poder.Nivel +=1;
+                break;
+            case 5:
+                jugador.Poder.Velocidad +=1;
+                break;
+        }
+    }
     public void combatir(personaje jugador1, personaje jugador2)
     {
         for (int i = 0; i < 3; i++)
@@ -60,11 +82,13 @@ public class combates{
         if (jugador1.Informacion.Salud > jugador2.Informacion.Salud)
         {
             Console.WriteLine(jugador1.Informacion.Nombre + " ES EL GANADOR!!!!");
+            premioGanador(jugador1);
         } else
         {
             if (jugador2.Informacion.Salud > jugador1.Informacion.Salud)
             {
                 Console.WriteLine(jugador1.Informacion.Nombre + " ES EL GANADOR!!!!");
+                premioGanador(jugador2);
             } else
             {
                 Console.WriteLine("HA HABIDO UN EMPATE!!!");
