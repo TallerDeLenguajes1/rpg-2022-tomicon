@@ -31,7 +31,9 @@ public class combates{
         double valorAtaque= calcularVA(jugador1, efectividadDisparo);
         int poderDefensa= calcularPDEF(jugador2);
         double danoProvocado = (((valorAtaque * efectividadDisparo) - poderDefensa) / MDP) * 100;
+        danoProvocado= Math.Round(danoProvocado, 2);
         jugador2.Informacion.Salud -= danoProvocado;
+        jugador2.Informacion.Salud = Math.Round(jugador2.Informacion.Salud, 2);
         Console.WriteLine("Efectividad de disparo: " + efectividadDisparo);
         Console.WriteLine("Valor de ataque: " + valorAtaque);
         Console.WriteLine("Danio provocado: " + danoProvocado);
@@ -47,13 +49,14 @@ public class combates{
         {
             if (jugador1.Informacion.Salud > 0 && jugador2.Informacion.Salud > 0)
             {
-                Console.WriteLine("ROUND " + (i+1));
-                Console.WriteLine("Ataca :" + jugador1.Informacion.Nombre + " Defiende: " + jugador2.Informacion.Nombre);
+                Console.WriteLine("\nROUND " + (i+1) + "!!!!\n");
+                Console.WriteLine("ATACA: " + jugador1.Informacion.Nombre + "  |---|  DEFIENDE: " + jugador2.Informacion.Nombre);
                 ataque(jugador1, jugador2);
-                Console.WriteLine("Ahora es turno de que ataque " + jugador2.Informacion.Nombre + " y defienda " + jugador1.Informacion.Nombre);
+                Console.WriteLine("\nAHORA ES TURNO DE QUE ATAQUE " + jugador2.Informacion.Nombre + "  |---|  Y DEFIENDA " + jugador1.Informacion.Nombre);
                 ataque(jugador2, jugador1);
             }
         }
+        Console.Write("\n");
         if (jugador1.Informacion.Salud > jugador2.Informacion.Salud)
         {
             Console.WriteLine(jugador1.Informacion.Nombre + " ES EL GANADOR!!!!");

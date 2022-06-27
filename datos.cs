@@ -22,10 +22,10 @@ public class datos {
     }
     public datos()
     {
-        string[] nombres= {"Jesse","Nurten","Hildegart","Mirja","Elfi","Ingeburg","Annegrete","Lieselotte","Kiyasi","Kete","Altug","Miray","Bayan","Nalan","Beatrice","Aalis"};
-        string[] apellido= {"Gregoire","Leduc","Roussel","Bodin","Trentini","Combi","Ossani","Giunti","Fritsch","Buchholz","Oderwald","Stroh"};
-        string[] apodos= {"Protesian","Nessundorma","Demonologist","Elessar","undomiel","Earendil","Gilthoniel","Shadowhunter"};
-        string[] apodos2= {"Shruikan","Argetlam","Arya","Elva","Sloan","Brugh","Shadow killer","The great"};
+        string[] nombres= {"JESSE","NURTEN","HILDEGART","MIRJA","ELFI","INGEBURG","ANNEGRETE","LIESELOTTE","KIYASI","KETE","ALTUG","MIRAY","BAYAN","NALAN","BEATRICE","AALIS"};
+        string[] apellido= {"GREGOIRE","LEDUC","ROUSSEL","BODIN","TRENTINI","COMBI","OSSANI","GIUNTI","FRITSCH","BUCHHOLZ","ODERWALD","STROH"};
+        string[] apodos= {"PROTESIAN","NESSUNDORMA","DEMONOLOGIST","ELESSAR","UNDOMIEL","EARENDIL","GILTHONIEL","SHADOWHUNTER"};
+        string[] apodos2= {"SHRUIKAN","ARGETLAM","ARYA","ELVA","SLOAN","BRUGH","SHADOW KILLER","THE GREAT"};
         string[] tipos= {"elfo","hombre","brujo","orco","troll","enano","animal encantado"};
         double saludInicial = 10000;
         Random r= new Random();

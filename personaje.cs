@@ -12,7 +12,7 @@ public class personaje{
     public caracteristicas Poder { get => poder; set => poder = value; }
     public datos Informacion { get => informacion; set => informacion = value; }
     public void mostrarDatos(){
-        Console.WriteLine("||------Jugador: " + informacion.Nombre + "------||");
+        Console.WriteLine("\n||------Jugador: " + informacion.Nombre + "------||");
         Console.WriteLine("Apodo: " + informacion.Apodo);
         Console.WriteLine("Raza: " + informacion.Tipo);
         Console.WriteLine("Fecha de nacimiento: " + informacion.Fecha_Nac.ToShortDateString());
@@ -20,7 +20,7 @@ public class personaje{
     }
 
     public void mostrarCaracteristicas(){
-        Console.WriteLine("Las caracteristicas de " + informacion.Nombre + "son:");
+        Console.WriteLine("\nLas caracteristicas de " + informacion.Nombre + " son:");
         Console.WriteLine("Nivel: " + poder.Nivel);
         Console.WriteLine("Fuerza: " + poder.Fuerza);
         Console.WriteLine("Velocidad: " + poder.Velocidad);
