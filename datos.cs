@@ -5,7 +5,7 @@ public class datos {
     private string apodo;
     private DateTime fecha_Nac;
     private int edad; //entre 0 a 300
-    private int salud;//100
+    private double salud;//100
 
     public int calcularEdad(DateTime nacimiento)
     {
@@ -27,7 +27,7 @@ public class datos {
         string[] apodos= {"Protesian","Nessundorma","Demonologist","Elessar","undomiel","Earendil","Gilthoniel","Shadowhunter"};
         string[] apodos2= {"Shruikan","Argetlam","Arya","Elva","Sloan","Brugh","Shadow killer","The great"};
         string[] tipos= {"elfo","hombre","brujo","orco","troll","enano","animal encantado"};
-        int saludInicial = 100;
+        double saludInicial = 10000;
         Random r= new Random();
         nombre= nombres[r.Next(0,16)] + " " + apellido[r.Next(0,12)];
         salud = saludInicial;
@@ -41,7 +41,7 @@ public class datos {
     public string Apodo { get => apodo; set => apodo = value; }
     public DateTime Fecha_Nac { get => fecha_Nac; set => fecha_Nac = value; }
     public int Edad { get => edad; set => edad = value; }
-    public int Salud { get => salud; set => salud = value; }
+    public double Salud { get => salud; set => salud = value; }
     public string Tipo { get => tipo; set => tipo = value; }
 }
 
