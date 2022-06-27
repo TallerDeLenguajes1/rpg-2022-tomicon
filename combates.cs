@@ -65,7 +65,7 @@ public class combates{
                 break;
         }
     }
-    public void combatir(personaje jugador1, personaje jugador2)
+    public personaje combatir(personaje jugador1, personaje jugador2)
     {
         for (int i = 0; i < 3; i++)
         {
@@ -83,15 +83,28 @@ public class combates{
         {
             Console.WriteLine(jugador1.Informacion.Nombre + " ES EL GANADOR!!!!");
             premioGanador(jugador1);
+            return jugador2;  //retorna al perdedor para que sea eliminado de la lista
         } else
         {
             if (jugador2.Informacion.Salud > jugador1.Informacion.Salud)
             {
                 Console.WriteLine(jugador1.Informacion.Nombre + " ES EL GANADOR!!!!");
                 premioGanador(jugador2);
+                return jugador1;
             } else
             {
-                Console.WriteLine("HA HABIDO UN EMPATE!!!");
+                Console.WriteLine("HA HABIDO UN EMPATE!!! EL GANADOR SE DARA POR SORTEO");
+                if (r.Next(1,3) == 1)
+                {
+                    Console.WriteLine(jugador1.Informacion.Nombre + " ES EL GANADOR!!!!");
+                    premioGanador(jugador2);
+                    return jugador1;
+                } else
+                {
+                    Console.WriteLine(jugador1.Informacion.Nombre + " ES EL GANADOR!!!!");
+                    premioGanador(jugador1);
+                    return jugador2;
+                }
             }
         }
     }
