@@ -33,7 +33,20 @@ public class datos {
         salud = saludInicial;
         apodo = apodos[r.Next(0,8)] + " " + apodos2[r.Next(0,8)];
         tipo =  tipos[r.Next(0,7)];
-        fecha_Nac = new DateTime(r.Next(1722, 2012), r.Next(1, 13), r.Next(1, 31));
+        int anio= r.Next(1722, 2012);
+        int mes= r.Next(1, 13);
+        int dia;
+        if (anio == 1 || anio == 3 || anio == 5 || anio == 7 || anio == 8 || anio == 10 || anio == 12)
+        {
+            dia = r.Next(1, 32);   
+        } else if (anio == 2)
+        {
+            dia = r.Next(1,29);
+        } else
+        {
+            dia = r.Next(1,31);
+        }
+        fecha_Nac = new DateTime(anio, mes , dia);
         edad = calcularEdad(fecha_Nac);
     }
 
