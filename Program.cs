@@ -1,37 +1,51 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Text.Json;
 Console.WriteLine("BIENVENIDO A \"THE IRON THRONE TOURNAMENT\"!!!!!! TE CREES CAPAZ DE ALCANZAR LA GLORIA DEL TRONO DE HIERRO??\n");
 Console.WriteLine("La dinamica es muy simple. Se hara un torneo entre al menos 8 jugadores. En cada ronda se enfrentaran dos jugadores en 3 rounds, ");
 Console.WriteLine("el que finalice con mas vida sera el ganador y avanzara a la proxima ronda. El que gane la final se sentara en el trono de hierro");
-Console.WriteLine("Elige la cantidad de jugadores para el torneo (max: 128)");
-int cantJugadores= Convert.ToInt32(Console.ReadLine());
-if (cantJugadores < 8)
-{
-    cantJugadores= 8;
-} 
-else if (cantJugadores < 16)
-{
-    cantJugadores= 16;
-}
-else if (cantJugadores < 32)
-{
-    cantJugadores= 32;
-}
-else if (cantJugadores < 64)
-{
-    cantJugadores= 64;
-}
-else if (cantJugadores > 64)
-{
-    cantJugadores= 128;
-}
-int cantRondas= Convert.ToInt32(Math.Log2(cantJugadores));  //calculo cuantas rondas habra hasta obtener a un unico ganador
+Console.WriteLine("Desea cargar nuevos personajes o jugar con los que se encuentran guardados? En caso de que no haya jugadores guardados, se pasara directamente a la carga de nuevos personajes");
+Console.WriteLine("(Jugar con los guardados= 1, Cargar nuevos = cualquier otra tecla)");
 List<personaje> jugadores= new List<personaje>();
-for (int i = 0; i < cantJugadores; i++)
+int cargarPersonajes= Convert.ToInt32(Console.ReadLine());
+int cantJugadores;
+if (cargarPersonajes == 1 && File.Exists("jugadores.json"))
 {
-    personaje nuevoJugador= new personaje();
-    jugadores.Add(nuevoJugador);
+    jugadores = JsonSerializer.Deserialize<List<personaje>>(File.ReadAllText("jugadores.json"));
+    cantJugadores= jugadores.Count();
+} else
+{
+    Console.WriteLine("Elige la cantidad de jugadores para el torneo (max: 128)");
+    cantJugadores= Convert.ToInt32(Console.ReadLine());
+        if (cantJugadores < 9)
+    {
+        cantJugadores= 8;
+    } 
+    else if (cantJugadores < 17)
+    {
+        cantJugadores= 16;
+    }
+    else if (cantJugadores < 33)
+    {
+        cantJugadores= 32;
+    }
+    else if (cantJugadores < 65)
+    {
+        cantJugadores= 64;
+    }
+    else if (cantJugadores > 64)
+    {
+        cantJugadores= 128;
+    }
+    for (int i = 0; i < cantJugadores; i++)
+    {
+        personaje nuevoJugador= new personaje();
+        jugadores.Add(nuevoJugador);
+    }
+    string Json_jugadores = JsonSerializer.Serialize(jugadores);
+    File.WriteAllText("jugadores.json",Json_jugadores);
 }
 Console.WriteLine("HORA DE PELEAR!!!");
+int cantRondas= Convert.ToInt32(Math.Log2(cantJugadores));  //calculo cuantas rondas habra hasta obtener a un unico ganador
 combates enfrentador= new combates();
 List<personaje> perdedores= new List<personaje>();
 List<personaje> ganadores= new List<personaje>();
