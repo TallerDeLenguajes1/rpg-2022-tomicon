@@ -71,7 +71,7 @@ public class combates{
         {
             if (jugador1.Informacion.Salud > 0 && jugador2.Informacion.Salud > 0)
             {
-                Console.WriteLine("\nROUND " + (i+1) + "!!!!\n");
+                Console.WriteLine("ROUND " + (i+1) + "!!!!\n");
                 Console.WriteLine("ATACA: " + jugador1.Informacion.Nombre + "  |---|  DEFIENDE: " + jugador2.Informacion.Nombre);
                 ataque(jugador1, jugador2);
                 Console.WriteLine("\nAHORA ES TURNO DE QUE ATAQUE " + jugador2.Informacion.Nombre + "  |---|  Y DEFIENDA " + jugador1.Informacion.Nombre);
@@ -88,7 +88,7 @@ public class combates{
         {
             if (jugador2.Informacion.Salud > jugador1.Informacion.Salud)
             {
-                Console.WriteLine(jugador1.Informacion.Nombre + " ES EL GANADOR!!!!");
+                Console.WriteLine(jugador2.Informacion.Nombre + " ES EL GANADOR!!!!");
                 premioGanador(jugador2);
                 return jugador1;
             } else
@@ -96,7 +96,7 @@ public class combates{
                 Console.WriteLine("HA HABIDO UN EMPATE!!! EL GANADOR SE DARA POR SORTEO");
                 if (r.Next(1,3) == 1)
                 {
-                    Console.WriteLine(jugador1.Informacion.Nombre + " ES EL GANADOR!!!!");
+                    Console.WriteLine(jugador2.Informacion.Nombre + " ES EL GANADOR!!!!");
                     premioGanador(jugador2);
                     return jugador1;
                 } else
