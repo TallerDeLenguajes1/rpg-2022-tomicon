@@ -45,11 +45,6 @@ if (cargarPersonajes == 1 && File.Exists("jugadores.json"))
     string Json_jugadores = JsonSerializer.Serialize(jugadores);
     File.WriteAllText("jugadores.json",Json_jugadores);
 }
-var url = $"https://api.disneyapi.dev/characters";
-        var request = (HttpWebRequest)WebRequest.Create(url);
-        request.Method = "GET";
-        request.ContentType = "application/json";
-        request.Accept = "application/json";
 List<string> Arenas = new List<string>();
 Console.WriteLine("HORA DE PELEAR!!!");
 int cantRondas= Convert.ToInt32(Math.Log2(cantJugadores));  //calculo cuantas rondas habra hasta obtener a un unico ganador
@@ -61,6 +56,11 @@ string encabezadoCSV= "Nombre,Cant Partidas Ganadas,Apodo";
 renglones.Add(encabezadoCSV);
 string linea;
 string lineaRondaAnterior;  //auxiliar para eliminar del csv las lineas de los jugadores que siguen sumando victorias
+var url = $"https://api.disneyapi.dev/characters";
+var request = (HttpWebRequest)WebRequest.Create(url);
+request.Method = "GET";
+request.ContentType = "application/json";
+request.Accept = "application/json";
 using (WebResponse response = request.GetResponse())
         {
             using (Stream strReader = response.GetResponseStream())
